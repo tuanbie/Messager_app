@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 
 class LoginRepository {
   login(String email, String pass) async {
-    var res = await http.post(Uri.http("http://192.168.24.250"),
+    var res = await http.post(Uri.http("http://localhost:3000/api/users"),
         headers: {}, body: {"email": email, "password": pass});
     final data = json.decode(res.body);
     if (data['email'] != null) {

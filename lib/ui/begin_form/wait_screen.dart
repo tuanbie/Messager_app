@@ -17,10 +17,9 @@ class _wait_screenState extends State<wait_screen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(milliseconds: 2000)).then((value) {
-      Navigator.pushNamed(context, '/login');
+    Future.delayed(const Duration(milliseconds: 1200)).then((value) {
+      Navigator.pushNamed(context, 'login');
     });
-    ;
   }
 
   @override

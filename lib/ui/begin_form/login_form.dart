@@ -10,6 +10,7 @@ import 'package:messager_app/controller/login/login_state.dart';
 import 'package:messager_app/ui/constants.dart';
 
 import '../../components/button.dart';
+import '../../controller/login/login_avent.dart';
 
 class login extends StatefulWidget {
   const login({super.key});
@@ -34,7 +35,7 @@ class _loginState extends State<login> {
     if (state is LoginErrorState) {
       return Text(state.message);
     } else if (state is LoginLoadingState) {
-      return Center(
+      return const Center(
         child: CircularProgressIndicator(),
       );
     } else {
@@ -65,43 +66,42 @@ class _loginState extends State<login> {
                 ),
               ),
               msg,
-              Padding(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
-                child: TextFormField(
-                  controller: email,
-                  keyboardType: TextInputType.emailAddress,
-                  decoration: InputDecoration(
-                    enabledBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: kPrimarycurluColor),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.black),
-                      borderRadius: BorderRadius.circular(15),
-                    ),
-                    hintText: "Email",
-                    border: InputBorder.none,
-                    filled: true,
-                    // suffixIcon: IconButton(
-                    //   icon: Icon(Icons.clear),
-                    //   onPressed: () async => _textControllor.clear(),
-                    // ),
-                  ),
-                  validator: (value) => null,
-                ),
-              ),
-              // textform(
-              //   key: null,
+              // Padding(
+              //   padding:
+              //       const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+              //   child: TextFormField(
+              //     controller: email,
+              //     keyboardType: TextInputType.emailAddress,
+              //     decoration: InputDecoration(
+              //       enabledBorder: OutlineInputBorder(
+              //         borderSide: BorderSide(color: kPrimarycurluColor),
+              //         borderRadius: BorderRadius.circular(15),
+              //       ),
+              //       focusedBorder: OutlineInputBorder(
+              //         borderSide: BorderSide(color: Colors.black),
+              //         borderRadius: BorderRadius.circular(15),
+              //       ),
+              //       hintText: "Email",
+              //       border: InputBorder.none,
+              //       filled: true,
+              //       // suffixIcon: IconButton(
+              //       //   icon: Icon(Icons.clear),
+              //       //   onPressed: () async => _textControllor.clear(),
+              //       // ),
+              //     ),
+              //     validator: (value) => null,
+              //   ),
               // ),
-              textformpass(
-                key: null,
-              ),
+              // // textform(
+              // //   key: null,
+              // // ),
+              textform(controller: email, hintText: "Email"),
+              textform(controller: pass, hintText: "Password"),
               DefaultButton(
                 text: 'Continue',
                 press: () {
-                  // loginBloc.add(
-                  //     LoginButtonPressd(email: email.text, password: pass.text));
+                  loginBloc.add(LoginButtonPressd(
+                      email: email.text, password: pass.text));
                 },
               ),
               Padding(
@@ -128,7 +128,7 @@ class _loginState extends State<login> {
                       Icons: Icons.facebook,
                       press: () {},
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 25,
                     ),
                     iconlogin(
@@ -143,7 +143,7 @@ class _loginState extends State<login> {
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
+                    const Text(
                       'Do not have an account?',
                       style: TextStyle(
                         color: kPrimaryDartColor,
@@ -151,8 +151,8 @@ class _loginState extends State<login> {
                     ),
                     GestureDetector(
                       onTap: () {},
-                      child: Text(
-                        'Register',
+                      child: const Text(
+                        ' Register',
                         style: TextStyle(
                           color: kPrimarycurluColor,
                         ),
