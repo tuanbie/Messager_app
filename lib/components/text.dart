@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../ui/size_config.dart';
+import '../size_config.dart';
 
 class text extends StatelessWidget {
   const text({

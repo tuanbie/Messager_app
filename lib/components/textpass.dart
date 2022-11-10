@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter/material.dart';
-import '../ui/constants.dart';
+import '../constants.dart';
 
 class textformpass extends StatelessWidget {
   const textformpass({super.key});

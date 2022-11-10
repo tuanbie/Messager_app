@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:messager_app/ui/constants.dart';
+import 'package:messager_app/constants.dart';
 
 class iconlogin extends StatelessWidget {
   const iconlogin({

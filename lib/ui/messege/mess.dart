@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:messager_app/components/text.dart';
 
 class mess extends StatefulWidget {
   const mess({super.key});
@@ -10,6 +11,10 @@ class mess extends StatefulWidget {
 class _messState extends State<mess> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return Scaffold(
+      body: Container(
+        child: Center(child: text(title: "hello")),
+      ),
+    );
   }
 }

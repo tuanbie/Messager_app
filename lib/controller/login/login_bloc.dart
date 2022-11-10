@@ -15,28 +15,17 @@ class LoginBloc extends Bloc<LoginEvent, LoginState> {
     // Username updated
     if (event is StartEvent) {
       yield LoginInitState();
-
       // Password updated
     } else if (event is LoginButtonPressd) {
-      yield LoginLoadingState();
+      yield LoginLoadingState(message: "Lỗi từ nguồn dữ liệu!");
       var data = await authRepo.login(event.email, event.password);
-      if (data['email'] == event.email) {
-        pref.setString("token", data['token']);
-        pref.setString("email", data['email']);
+      if (data != null) {
+        // pref.setString("token", data['token']);
+        // pref.setString("email", data['email']);
         yield UserLoginSuccessState();
       } else {
-        yield LoginErrorState(message: "Loi dang nhap");
+        yield LoginErrorState(message: "Dữ liệu đăng nhập không đúng !");
       }
-      // Form submitted
-    } //else if (event is LoginSubmitted) {
-    //   yield state.copyWith(formStatus: FormSubmitting());
-
-    //   try {
-    //     await authRepo.login();
-    //     yield state.copyWith(formStatus: SubmissionSuccess());
-    //   } catch (e) {
-    //     yield state.copyWith(formStatus: SubmissionFailed(e));
-    //   }
-    // }
+    }
   }
 }

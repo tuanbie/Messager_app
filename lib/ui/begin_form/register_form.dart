@@ -4,42 +4,45 @@ import 'package:messager_app/components/iconlogin.dart';
 import 'package:messager_app/components/leble_image.dart';
 import 'package:messager_app/components/text.dart';
 import 'package:messager_app/components/textfeld.dart';
-import 'package:messager_app/controller/login/login_bloc.dart';
-import 'package:messager_app/controller/login/login_state.dart';
+
 import 'package:messager_app/constants.dart';
+import 'package:messager_app/controller/register/register_bloc.dart';
 
 import '../../components/button.dart';
-import '../../controller/login/login_avent.dart';
+import '../../controller/register/register_envent.dart';
+import '../../controller/register/register_state.dart';
 
-class login extends StatefulWidget {
-  const login({super.key});
+class register extends StatefulWidget {
+  const register({super.key});
 
   @override
-  State<login> createState() => _loginState();
+  State<register> createState() => _registerState();
 }
 
-class _loginState extends State<login> {
+class _registerState extends State<register> {
   TextEditingController email = TextEditingController();
   TextEditingController pass = TextEditingController();
+  TextEditingController username = TextEditingController();
+  TextEditingController number = TextEditingController();
 
-  late LoginBloc loginBloc;
+  late RegisterBloc registerBloc;
 
   @override
   void initState() {
-    loginBloc = BlocProvider.of<LoginBloc>(context);
+    registerBloc = BlocProvider.of<RegisterBloc>(context);
     super.initState();
   }
 
-  final msg = BlocBuilder<LoginBloc, LoginState>(builder: (context, state) {
-    if (state is LoginErrorState) {
+  final msg =
+      BlocBuilder<RegisterBloc, RegisterState>(builder: (context, state) {
+    if (state is RegisterErrorState) {
       return Text(
         state.message,
         style: TextStyle(color: kPrimarycurluColor),
       );
-    } else if (state is LoginLoadingState) {
-      return Text(
-        state.message,
-        style: TextStyle(color: kPrimarycurluColor),
+    } else if (state is RegisterLoadingState) {
+      return const Center(
+        child: CircularProgressIndicator(),
       );
     } else {
       return Container();
@@ -49,33 +52,38 @@ class _loginState extends State<login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: BlocListener<LoginBloc, LoginState>(
+      body: BlocListener<RegisterBloc, RegisterState>(
         listener: (context, state) {
-          if (state is UserLoginSuccessState) {
-            Navigator.pushNamed(context, 'mess');
+          if (state is UserRegisterSuccessState) {
+            Navigator.pushNamed(context, 'login');
           }
         },
         child: SingleChildScrollView(
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.fromLTRB(0, 170, 0, 20),
+                padding: const EdgeInsets.fromLTRB(0, 50, 0, 20),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     image(context),
-                    const text(title: "Messeger"),
+                    const text(title: "Register"),
                   ],
                 ),
               ),
               msg,
               textform(controller: email, hintText: 'Email'),
               textform(controller: pass, hintText: "PassWord"),
+              textform(controller: username, hintText: 'UserName'),
+              textform(controller: number, hintText: "NumberPhone"),
               DefaultButton(
                 press: () {
-                  loginBloc.add(LoginButtonPressd(
-                      email: email.text, password: pass.text));
+                  registerBloc.add(RegisterButtonPressd(
+                      email: email.text,
+                      password: pass.text,
+                      username: username.text,
+                      number: number.text));
                 },
                 text: "Continue",
               ),
@@ -124,17 +132,17 @@ class _loginState extends State<login> {
                         color: kPrimaryDartColor,
                       ),
                     ),
-                    GestureDetector(
-                      onTap: () {
-                        Navigator.pushNamed(context, 'register');
-                      },
-                      child: const Text(
-                        ' Register',
-                        style: TextStyle(
-                          color: kPrimarycurluColor,
-                        ),
-                      ),
-                    ),
+                    // GestureDetector(
+                    //   onTap: () {
+                    //     Navigator.pushNamed(context, 'login');
+                    //   },
+                    //   child: const Text(
+                    //     ' Login',
+                    //     style: TextStyle(
+                    //       color: kPrimarycurluColor,
+                    //     ),
+                    //   ),
+                    // ),
                   ],
                 ),
               )

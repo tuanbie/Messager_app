@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import '../ui/constants.dart';
+import '../constants.dart';
 
 class textform extends StatelessWidget {
   const textform({
@@ -8,33 +8,34 @@ class textform extends StatelessWidget {
     required this.hintText,
   }) : super(key: key);
 
-  final controller;
+  final TextEditingController controller;
   final String hintText;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 20),
+      padding: const EdgeInsets.symmetric(horizontal: 50, vertical: 13),
       child: TextFormField(
-        controller: null,
+        style: TextStyle(color: Colors.black),
+        controller: controller,
         decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(
             borderSide: BorderSide(color: kPrimarycurluColor),
             borderRadius: BorderRadius.circular(15),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Colors.black),
+            borderSide: BorderSide(color: kPrimarycurluColor),
             borderRadius: BorderRadius.circular(15),
           ),
-          hintText: null,
-          border: InputBorder.none,
-          filled: true,
+          hintText: hintText,
+          // border: InputBorder.none,
+          // filled: true,
           // suffixIcon: IconButton(
           //   icon: Icon(Icons.clear),
           //   onPressed: () async => _textControllor.clear(),
           // ),
         ),
-        validator: (value) => null,
+        // validator: (value) => null,
       ),
     );
   }
