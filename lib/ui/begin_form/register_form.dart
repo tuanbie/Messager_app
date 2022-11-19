@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:messager_app/components/iconlogin.dart';
-import 'package:messager_app/components/leble_image.dart';
-import 'package:messager_app/components/text.dart';
-import 'package:messager_app/components/textfeld.dart';
+import 'package:messager_app/ui/components/iconlogin.dart';
+import 'package:messager_app/ui/components/leble_image.dart';
+import 'package:messager_app/ui/components/text.dart';
+import 'package:messager_app/ui/components/textfeld.dart';
 
 import 'package:messager_app/constants.dart';
 import 'package:messager_app/controller/register/register_bloc.dart';
 
-import '../../components/button.dart';
+import '../components/button.dart';
 import '../../controller/register/register_envent.dart';
 import '../../controller/register/register_state.dart';
 
@@ -95,7 +95,7 @@ class _registerState extends State<register> {
                     Text(
                       'or',
                       style: TextStyle(
-                        color: kSecondaryColor,
+                        color: msecon,
                         fontSize: 15,
                       ),
                     )

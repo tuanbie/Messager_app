@@ -1,14 +1,17 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:messager_app/components/iconlogin.dart';
-import 'package:messager_app/components/leble_image.dart';
-import 'package:messager_app/components/text.dart';
-import 'package:messager_app/components/textfeld.dart';
+import 'package:messager_app/ui/components/iconlogin.dart';
+import 'package:messager_app/ui/components/leble_image.dart';
+import 'package:messager_app/ui/components/notification.dart';
+import 'package:messager_app/ui/components/text.dart';
+import 'package:messager_app/ui/components/textfeld.dart';
 import 'package:messager_app/controller/login/login_bloc.dart';
 import 'package:messager_app/controller/login/login_state.dart';
 import 'package:messager_app/constants.dart';
 
-import '../../components/button.dart';
+import '../components/button.dart';
 import '../../controller/login/login_avent.dart';
 
 class login extends StatefulWidget {
@@ -36,11 +39,10 @@ class _loginState extends State<login> {
         state.message,
         style: TextStyle(color: kPrimarycurluColor),
       );
+      // snackbar(title: state.message);
     } else if (state is LoginLoadingState) {
-      return Text(
-        state.message,
-        style: TextStyle(color: kPrimarycurluColor),
-      );
+      return Container();
+      // snackbar(title: state.message);
     } else {
       return Container();
     }
@@ -82,14 +84,19 @@ class _loginState extends State<login> {
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 20, 0, 5),
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: const [
+                    Divider(
+                      thickness: 10,
+                    ),
                     Text(
                       'or',
                       style: TextStyle(
-                        color: kSecondaryColor,
+                        color: msecon,
                         fontSize: 15,
                       ),
+                    ),
+                    Divider(
+                      thickness: 10,
                     )
                   ],
                 ),

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:messager_app/components/text.dart';
+import 'package:messager_app/ui/components/text.dart';
 import 'package:messager_app/ui/begin_form/login_form.dart';
 import 'package:messager_app/constants.dart';
-import '../../components/leble_image.dart';
+import '../components/leble_image.dart';
 import '/constants.dart';
 import '../../router/router.dart';
 
@@ -41,7 +41,7 @@ class _wait_screenState extends State<wait_screen> {
               const Padding(
                 padding: EdgeInsets.fromLTRB(0, 0, 0, 45),
                 child: CircularProgressIndicator(
-                  backgroundColor: kPrimaryLightColor,
+                  backgroundColor: mlight,
                   color: kPrimarycurluColor,
                   strokeWidth: 7,
                 ),

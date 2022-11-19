@@ -3,12 +3,13 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:messager_app/size_config.dart';
 
 const kPrimaryColor = Color(0xFFFF7643);
-const kPrimaryLightColor = Color(0xFFFFECDF);
+const mlight = Color.fromARGB(255, 255, 255, 255);
 const kPrimaryDartColor = Color(0xFF1D1D35);
 const kPrimarytextColor = Color(0xFFFF7643);
 const kPrimarycurluColor = Color(0xFFF48FB1);
+const mblack = Color.fromARGB(255, 0, 0, 0);
 
-const kContentColorLightTheme = Color(0xFFF5FCF9);
+const kContentColorLightTheme = Color.fromARGB(255, 244, 244, 244);
 const kContentColorDarkTheme = Color(0xFF1D1D35);
 const kWarninngColor = Color(0xFFF3BB1C);
 // const kErrorColor = Color(0xFFF03738);
@@ -20,7 +21,7 @@ const kPrimaryGradientColor = LinearGradient(
   end: Alignment.bottomRight,
   colors: [Color(0xFFFFA53E), Color(0xFFFF7643)],
 );
-const kSecondaryColor = Color(0xFF979797);
+const msecon = Color.fromARGB(255, 216, 216, 216);
 const kTextColor = Color(0xFF757575);
 const kAnimationDuration = Duration(milliseconds: 200);
 
@@ -63,18 +64,18 @@ OutlineInputBorder outlineInputBorder() {
 ThemeData lightThemeData(BuildContext context) {
   return ThemeData.light().copyWith(
     primaryColor: kPrimaryColor,
-    scaffoldBackgroundColor: Colors.white,
+    scaffoldBackgroundColor: kContentColorLightTheme,
     appBarTheme: appBarTheme,
     iconTheme: IconThemeData(color: kContentColorLightTheme),
     textTheme: GoogleFonts.interTextTheme(Theme.of(context).textTheme)
         .apply(bodyColor: kContentColorLightTheme),
     colorScheme: ColorScheme.light(
       primary: kPrimaryColor,
-      secondary: kSecondaryColor,
+      secondary: msecon,
       // error: kErrorColor,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(
-      backgroundColor: Colors.white,
+      backgroundColor: kContentColorLightTheme,
       selectedItemColor: kContentColorLightTheme.withOpacity(0.7),
       unselectedItemColor: kContentColorLightTheme.withOpacity(0.32),
       selectedIconTheme: IconThemeData(color: kPrimaryColor),
@@ -95,7 +96,7 @@ ThemeData darkThemeData(BuildContext context) {
         .apply(bodyColor: kContentColorDarkTheme),
     colorScheme: ColorScheme.dark().copyWith(
       primary: kPrimaryColor,
-      secondary: kSecondaryColor,
+      secondary: msecon,
       // error: kErrorColor,
     ),
     bottomNavigationBarTheme: BottomNavigationBarThemeData(

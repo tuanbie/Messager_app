@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../size_config.dart';
+import '../../size_config.dart';
 
-class text extends StatelessWidget {
-  const text({
+class lable extends StatelessWidget {
+  const lable({
     Key? key,
     required this.title,
   }) : super(key: key);
@@ -16,8 +16,7 @@ class text extends StatelessWidget {
         title,
         style: TextStyle(
           color: Colors.black,
-          fontSize: 30,
-          fontWeight: FontWeight.bold,
+          fontSize: 17,
         ),
       ),
     );

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:messager_app/constants.dart';
 
-import '../size_config.dart';
+import '../../size_config.dart';
 
 class DefaultButton extends StatelessWidget {
   const DefaultButton({
@@ -28,9 +28,7 @@ class DefaultButton extends StatelessWidget {
             child: Text(
               text!,
               style: TextStyle(
-                  color: kPrimaryLightColor,
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18),
+                  color: mlight, fontWeight: FontWeight.bold, fontSize: 18),
             ),
           ),
         ),

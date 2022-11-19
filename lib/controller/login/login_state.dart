@@ -1,4 +1,5 @@
 import 'package:equatable/equatable.dart';
+import 'package:messager_app/models/user.dart';
 
 class LoginState extends Equatable {
   @override
@@ -12,7 +13,10 @@ class LoginLoadingState extends LoginState {
   LoginLoadingState({required this.message});
 }
 
-class UserLoginSuccessState extends LoginState {}
+class UserLoginSuccessState extends LoginState {
+  final User user;
+  UserLoginSuccessState({required this.user});
+}
 
 class LoginErrorState extends LoginState {
   final String message;
